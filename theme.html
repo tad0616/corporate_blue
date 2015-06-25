@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="<{$xoops_langcode}>">
+  <head>
+    <{assign var=theme_name value=$xoTheme->folderName}>
+
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/get_var.html"}>
+    <meta charset="<{$xoops_charset}>">
+    <meta name="robots" content="<{$xoops_meta_robots}>" />
+    <meta name="keywords" content="<{$xoops_meta_keywords}>" />
+    <meta name="description" content="<{$xoops_meta_description}>" />
+    <meta name="rating" content="<{$xoops_meta_rating}>" />
+    <meta name="author" content="<{$xoops_meta_author}>" />
+    <meta name="copyright" content="<{$xoops_meta_copyright}>" />
+    <meta name="generator" content="XOOPS" />
+
+    <title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+
+
+    <!-- Rss -->
+    <link rel="alternate" type="application/rss+xml" title="" href="<{xoAppUrl backend.php}>" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/ico" href="<{xoImgUrl icons/favicon.ico}>" />
+    <link rel="icon" type="image/png" href="<{xoImgUrl icons/favicon.png}>" />
+
+    <!-- Sheet Css -->
+    <link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoAppUrl xoops.css}>" />
+    <link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoAppUrl themes/corporate_blue/tooplate_style.css}>" />
+    <link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoAppUrl themes/corporate_blue/css/xoops.css}>" />
+    <!-- Bootstrap -->
+    <link href="<{xoAppUrl modules/tadtools/bootstrap/css/bootstrap.css}>" rel="stylesheet" media="screen">
+
+
+
+    <!-- customized header contents -->
+    <{$xoops_module_header}>
+
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/theme_css.html"}>
+
+    <script type='text/javascript'>
+      if(typeof jQuery == 'undefined') {
+      document.write("<script type='text/javascript' src='<{xoAppUrl modules/tadtools/jquery/jquery.js}>'><\/script>");
+      }
+    </script>
+
+    <script language="javascript" type="text/javascript">
+    function clearText(field)
+    {
+        if (field.defaultValue == field.value) field.value = '';
+        else if (field.value == '') field.value = field.defaultValue;
+    }
+    </script>
+<!--   Free Website Template by t o o p l a t e . c o m   -->
+</head>
+<body>
+
+  <div id="tooplate_header_wrapper">
+    <div id="tooplate_header">
+      <div id="site_title">
+          <a href="<{xoAppUrl}>"><{if $logo_img}><img src="<{$logo_img}>" alt="<{$xoops_sitename}>" /><{else}><h1><{$xoops_sitename}></h1><{/if}></a>
+      </div>
+
+      <div id="header_right">
+        <link rel="stylesheet" href="<{xoAppUrl modules/tadtools/social-likes/social-likes_birman.css}>">
+        <script src="<{xoAppUrl modules/tadtools/social-likes/social-likes.min.js}>"></script>
+
+        <div id="social_box">
+          <div class="social-likes social-likes_notext" data-url="<{xoAppUrl index.php}>" data-title=" <{$xoops_sitename}>">
+            <div class="facebook" title="Share link on Facebook"></div>
+            <div class="twitter" title="Share link on Twitter"></div>
+            <div class="plusone" title="Share link on Google+"></div>
+            <div class="pinterest" title="Share image on Pinterest"></div>
+          </div>
+          <div class="cleaner"></div>
+        </div>
+
+        <div id="search_box">
+          <form action="<{xoAppUrl search.php}>" method="get">
+            <input type="text" name="query" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+            <input type="hidden" name="action" value="results" /><br />
+            <input type="submit" value="<{$block.lang_search}>" id="searchbutton" title="Search" />
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <{if $slide_width}>
+    <div id="tooplate_middle_wrapper">
+      <div id="tooplate_middle" class="carousel slide">
+        <ol class="carousel-indicators">
+          <{assign var="i" value=0}>
+          <{foreach from=$slider_var item=slider}>
+            <li data-target="#tooplate_middle" data-slide-to="<{$i}>"<{if $i==0}> class="active"<{/if}>></li>
+            <{assign var="i" value=$i+1}>
+          <{/foreach}>
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <{assign var="i" value=0}>
+          <{foreach from=$slider_var item=slider}>
+            <div class="<{if $i==0}>active <{/if}>item">
+              <div class="row-fluid">
+                <div class="span12">
+                  <a href="<{$slider.slide_url}>">
+                    <img src="<{$slider.file_url}>" alt="slide image" style="width:<{$slide_width}>px;height:<{$slide_height}>px;float:left;margin-right:15px;">
+                  </a>
+                  <div style="line-height:1.8;font-size:12pt;">
+                    <{$slider.description}>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <{assign var="i" value=$i+1}>
+          <{/foreach}>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#tooplate_middle" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#tooplate_middle" data-slide="next">&rsaquo;</a>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.carousel').carousel({
+          interval: 5000
+        });
+      });
+    </script>
+  <{/if}>
+
+  <div id="tooplate_menu">
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/navbar.html"}>
+    <div class="cleaner"></div>
+  </div>
+
+  <div id="tooplate_content">
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/$theme_type.html"}>
+  </div>
+
+  <div id="tooplate_footer_wrapper">
+    <div id="tooplate_footer">
+      <{$xoops_footer}>
+    </div>
+  </div>
+
+  <!--   Free Website Template by t o o p l a t e . c o m   -->
+
+
+  <script src="<{xoAppUrl modules/tadtools/bootstrap/js/bootstrap.min.js}>"></script>
+
+  <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/my_js.html"}>
+
+  <{if $show_var==1}>
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/show_var.html"}>
+  <{/if}>
+</body>
+</html>
