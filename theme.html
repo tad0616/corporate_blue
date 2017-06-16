@@ -88,6 +88,7 @@
           <div id="search_box">
             <form action="<{xoAppUrl search.php}>" method="get">
               <div class="input-append">
+                <label for="searchfield" style="display: none;">searchfield</label>
                 <input class="form-control" type="text" name="query" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)">
                 <input type="hidden" name="action" value="results">
                 <button class="btn" type="submit" id="searchbutton" title="Search"><{$block.lang_search}></button>
