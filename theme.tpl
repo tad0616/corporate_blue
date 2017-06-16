@@ -68,7 +68,7 @@
     <div id="tooplate_header_wrapper">
       <div id="tooplate_header">
         <div id="site_title">
-            <a href="<{xoAppUrl}>"><{if $logo_img}><img src="<{$logo_img}>" alt="<{$xoops_sitename}>" /><{else}><h1><{$xoops_sitename}></h1><{/if}></a>
+            <a href="<{xoAppUrl}>"><{if $logo_img}><img src="<{$logo_img}>" alt="<{$xoops_sitename}>" /><{else}><div style="font-size: 2em;font-weight: bold;"><{$xoops_sitename}></div><{/if}></a>
         </div>
 
         <div id="header_right">
